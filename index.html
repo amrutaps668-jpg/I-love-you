@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>For Sonu — From Gundi 💗</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg-pink: #fff3f8;
+      --soft-pink: #ffd8e6;
+      --accent1: #ff6b9f;
+      --accent2: #ff9ec9;
+      --deep:#3a1530;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Montserrat,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;background:linear-gradient(180deg,var(--bg-pink),#fff);}
+    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px}
+
+    .card{
+      width:100%;max-width:720px;background:linear-gradient(180deg,rgba(255,255,255,0.98),rgba(255,250,253,0.98));
+      border-radius:18px;padding:28px;border:1px solid rgba(255,182,203,0.35);box-shadow:0 18px 50px rgba(235,150,185,0.08);position:relative;overflow:hidden
+    }
+
+    .back-heart{
+      position:absolute;right:-120px;top:-60px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle at 30% 30%, rgba(255,182,203,0.45), rgba(255,217,235,0.25) 40%, transparent 60%);
+      transform:rotate(-12deg);filter:blur(18px);z-index:0;pointer-events:none
+    }
+
+    header{display:flex;gap:18px;align-items:center;position:relative;z-index:1}
+    .avatar{width:120px;height:120px;border-radius:50%;overflow:hidden;flex:0 0 120px;border:6px solid rgba(255,255,255,0.75);box-shadow:0 14px 36px rgba(255,107,159,0.08);background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;color:white;font-size:48px;font-weight:700}
+
+    h1{font-family:'Great Vibes',cursive;font-size:48px;margin:0;color:var(--deep);letter-spacing:0.5px}
+    .subtitle{color:#7b4b64;margin-top:6px}
+
+    .note{padding:24px;border-radius:14px;background:linear-gradient(180deg,#fff,#fff7fb);border:1px solid rgba(255,200,215,0.22);box-shadow:0 8px 28px rgba(250,200,220,0.04);margin-top:18px}
+    .note p{margin:0 0 12px 0;color:#5b3b4d;line-height:1.7}
+
+    .cta-row{margin-top:14px;display:flex;gap:10px;align-items:center}
+    .btn{padding:10px 14px;border-radius:999px;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:white;border:none;font-weight:700;cursor:pointer;box-shadow:0 8px 22px rgba(255,107,159,0.12)}
+
+    footer{margin-top:18px;color:#7b4b64;font-size:13px;text-align:center}
+
+    .pop-heart {
+      position:fixed;
+      pointer-events:none;
+      font-size:20px;
+      color:var(--accent1);
+      transform:translateY(0) scale(0.6);
+      opacity:0;
+      text-shadow: 0 6px 18px rgba(255, 140, 170, 0.35);
+      transition: transform 900ms cubic-bezier(.2,.9,.2,1), opacity 900ms ease;
+      z-index:9999;
+      will-change:transform,opacity;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="back-heart"></div>
+
+      <header>
+        <div class="avatar">💗</div>
+        <div>
+          <h1>For Sonu</h1>
+          <div class="subtitle">I love you chinniii 💗</div>
+        </div>
+      </header>
+
+      <section class="note">
+          <p>My dearest <strong>Sonu</strong>,</p>
+          <p>You are my safe place, my laughter, my comfort and my madness. Every moment with you feels like a soft miracle. I love you endlessly. 💗💕💫</p>
+          <p style="margin-top:8px;font-weight:700;color:#7b4b64">Forever yours,<br>Gundi</p>
+
+        <div class="cta-row">
+          <button class="btn" id="surpriseBtn">Open surprise</button>
+          <button class="btn" id="letterBtn">Read again</button>
+        </div>
+      </section>
+
+      <footer>Always and forever — Gundi → Sonu</footer>
+
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('surpriseBtn').addEventListener('click', ()=>{
+      for(let i=0;i<14;i++){
+        const h = document.createElement('div');
+        h.className = 'pop-heart';
+        h.textContent = '❤';
+        const left = 10 + Math.random()*80;
+        const top = 20 + Math.random()*60;
+        h.style.left = left + '%';
+        h.style.top = top + '%';
+        const size = 12 + Math.random()*28;
+        h.style.fontSize = size + 'px';
+        document.body.appendChild(h);
+        requestAnimationFrame(()=>{
+          h.style.opacity = '1';
+          h.style.transform = 'translateY(-60px) scale(1)';
+        });
+        setTimeout(()=>{
+          h.style.opacity = '0';
+          h.style.transform = 'translateY(-120px) scale(0.6)';
+          setTimeout(()=> h.remove(), 500);
+        }, 900 + Math.random()*700);
+      }
+    });
+
+    document.getElementById('letterBtn').addEventListener('click', ()=>{
+      const note = document.querySelector('.note');
+      note.style.transition='box-shadow 0.4s, transform 0.4s';
+      note.style.boxShadow='0 20px 40px rgba(255,150,190,0.14)';
+      note.style.transform='translateY(-6px)';
+      setTimeout(()=>{ note.style.boxShadow=''; note.style.transform=''; }, 700);
+    });
+  </script>
+</body>
+</html>
